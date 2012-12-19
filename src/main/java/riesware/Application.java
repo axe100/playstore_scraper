@@ -34,7 +34,7 @@ public class Application {
 
     public static void main(String[] args) throws IOException {
         load();
-        //t=W251bGwsMSwyLG51bGwsImNvbS50b3VjaHR5cGUuc3dpZnRrZXkiXQ..
+        
 
         int range = 0;
 
@@ -108,8 +108,23 @@ public class Application {
             range = range + 24;
 
         }
+        
+        
+        Permission p1 = main.getPermission("some test permission");        
+        Permission p2 = main.getPermission("another test permission");
+        
+        App app = new App();
+        app.addPermission(p1);
+        app.addPermission(p2);
+        
+        app.setAppId("some.id"); // app id must be set
+        app.setName("Sample App");
+        app.setDescription("Sample Description");
+        
+        
+        //Er beschwert sich wegen static und not static, wie kann ich das lösen.
+        apps.save(app);
    
-
     }
 
     public Permission getPermission(String permission) {
@@ -136,9 +151,4 @@ public class Application {
         return a;
     }
     
-    public void saveMyApp (App a){
-    
-    apps.save(a);   
-    
-    }
 }
