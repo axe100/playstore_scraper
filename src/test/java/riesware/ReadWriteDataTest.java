@@ -20,9 +20,8 @@ import riesware.entities.Permission;
 import riesware.repositories.AppRepository;
 import riesware.repositories.PermissionRepository;
 
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations = "/spring-config.xml")
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "/spring-config.xml")
 public class ReadWriteDataTest {
     
     private static final Logger logger = LoggerFactory.getLogger(ReadWriteDataTest.class);
@@ -54,7 +53,7 @@ public class ReadWriteDataTest {
     public void writeAppWithSomePermissions() {
         
         Permission p1 = application.getPermission("some test permission");        
-        Permission p2 = application.getPermission("another test permission");
+        Permission p2 = application.getPermission("another test permission");        
         
         App app = new App();
         app.addPermission(p1);

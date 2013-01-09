@@ -18,9 +18,8 @@ import riesware.repositories.PermissionRepository;
 public class Application {
 
     private static final org.slf4j.Logger log = LoggerFactory.getLogger(Application.class);
-    @Autowired
-    private AppRepository apps;
-    private PermissionRepository permissions;
+    @Autowired private AppRepository apps;
+    @Autowired private PermissionRepository permissions;
     private static final String config = "spring-config.xml";
     private static ApplicationContext context;
     private static Application main;
@@ -99,7 +98,7 @@ public class Application {
 
                     String currentPermission = myPermissions.get(k).text();
 
-                    logger.info("PERMISSION: " + i + " " + currentPermission);
+                    logger.info("PERMISSION: " + k + " " + currentPermission);
 
                 }
 
@@ -123,7 +122,7 @@ public class Application {
         
         
         //Er beschwert sich wegen static und not static, wie kann ich das lösen.
-        apps.save(app);
+        main.apps.save(app);
    
     }
 
